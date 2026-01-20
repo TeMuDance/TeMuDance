@@ -25,7 +25,7 @@
   <meta name="twitter:description" content="Joint music-text conditioned 3D dance generation with rhythmic alignment and semantic control.">
   <meta name="twitter:image" content="static/images/og_banner.png">
 
-  <!-- Favicon (set your real path) -->
+  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
 
   <!-- Fonts -->
@@ -40,6 +40,48 @@
 
   <!-- Your CSS -->
   <link rel="stylesheet" href="static/css/index.css">
+
+  <!-- Page-level overrides to ensure styling works even if index.css doesn't define these classes -->
+  <style>
+    /* ---- Global layout tweaks ---- */
+    .section-title { margin-bottom: 1rem; }
+    .section-subtitle { margin-top: 1rem; }
+    .container.is-max-desktop.wide-1280 { max-width: 1280px; }
+
+    /* ---- Teaser image ---- */
+    .temudance-figure img{
+      border-radius: 8px;
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* ---- Video cards (rounded + overflow hidden) ---- */
+    .video-card{
+      border-radius: 8px;
+      overflow: hidden;   /* critical: keeps the rounded corners visible */
+      background: #000;
+      margin: 0;          /* avoid default figure margin inconsistencies */
+    }
+
+    .demo-video{
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: block;
+      object-fit: cover;
+      background: #000;
+    }
+
+    .video-caption{
+      text-align: center;
+      margin-top: 8px;
+      padding: 0 6px;
+      line-height: 1.35;
+    }
+
+    /* ---- Optional: soften section separation ---- */
+    .has-background-light { border-top: 1px solid rgba(0,0,0,0.03); border-bottom: 1px solid rgba(0,0,0,0.03); }
+  </style>
 
   <!-- JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -82,7 +124,6 @@
                 </a>
               </span>
 
-
             </div>
 
           </div>
@@ -91,8 +132,8 @@
     </div>
   </section>
 
-  <!-- Teaser -->
-  <section class="section" id="teaser">
+  <!-- Teaser (white) -->
+  <section class="section has-background-white" id="teaser">
     <div class="container is-max-desktop">
       <div class="content">
 
@@ -108,9 +149,9 @@
     </div>
   </section>
 
-   <!-- Music + Text Guided Generation -->
-  <section class="section is-light" id="music-text-guided">
-    <div class="container is-max-desktop" style="max-width: 1280px;">
+  <!-- Music + Text Guided Generation (light background) -->
+  <section class="section has-background-light" id="music-text-guided">
+    <div class="container is-max-desktop wide-1280">
       <h2 class="title is-3 section-title">Music and Text Guided Generation</h2>
 
       <div class="columns is-multiline is-variable is-4">
@@ -120,8 +161,8 @@
             <video class="demo-video" controls muted autoplay loop playsinline preload="metadata">
               <source src="static/videos/test_2_193_slice12_counter.mp4" type="video/mp4">
             </video>
-            <figcaption class="video-caption">K-pop Music + “A man walks clockwise in a circle.”</figcaption>
           </figure>
+          <figcaption class="video-caption">K-pop Music + “A man walks clockwise in a circle.”</figcaption>
         </div>
 
         <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
@@ -129,19 +170,17 @@
             <video class="demo-video" controls muted autoplay loop playsinline preload="metadata">
               <source src="static/videos/test_0_063_slice10_kick.mp4" type="video/mp4">
             </video>
-            <figcaption class="video-caption">Breaking Music + “A person is kicking with his left leg.”</figcaption>
           </figure>
+          <figcaption class="video-caption">Breaking Music + “A person is kicking with his left leg.”</figcaption>
         </div>
-
-        
 
         <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
           <figure class="video-card">
             <video class="demo-video" controls muted autoplay loop playsinline preload="metadata">
               <source src="static/videos/test_0_109_slice25_sways.mp4" type="video/mp4">
             </video>
-            <figcaption class="video-caption">Classical Music + “A person sways left and right.”</figcaption>
           </figure>
+          <figcaption class="video-caption">Classical Music + “A person sways left and right.”</figcaption>
         </div>
 
         <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
@@ -149,8 +188,8 @@
             <video class="demo-video" controls muted autoplay loop playsinline preload="metadata">
               <source src="static/videos/test_0_211_slice20_jump.mp4" type="video/mp4">
             </video>
-            <figcaption class="video-caption">K-pop Music + “A person is jumping.”</figcaption>
           </figure>
+          <figcaption class="video-caption">K-pop Music + “A person is jumping.”</figcaption>
         </div>
 
         <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
@@ -158,8 +197,8 @@
             <video class="demo-video" controls muted autoplay loop playsinline preload="metadata">
               <source src="static/videos/test_1_012_slice22_spin.mp4" type="video/mp4">
             </video>
-            <figcaption class="video-caption">Jazz Music + “A man is spinning.”</figcaption>
           </figure>
+          <figcaption class="video-caption">Jazz Music + “A man is spinning.”</figcaption>
         </div>
 
         <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
@@ -167,29 +206,28 @@
             <video class="demo-video" controls muted autoplay loop playsinline preload="metadata">
               <source src="static/videos/test_1_092_slice11right.mp4" type="video/mp4">
             </video>
-            <figcaption class="video-caption">Popping Music + “A person is dancing towards the right side. ”</figcaption>
           </figure>
+          <figcaption class="video-caption">Popping Music + “A person is dancing towards the right side.”</figcaption>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- Music-Guided Generation -->
-  <section class="section is-light" id="music-guided">
-    <div class="container is-max-desktop" style="max-width: 1280px;">
+  <!-- Music-Guided Generation (white background) -->
+  <section class="section has-background-white" id="music-guided">
+    <div class="container is-max-desktop wide-1280">
       <h2 class="title is-3 section-title">Music-Guided Generation</h2>
 
       <div class="columns is-multiline is-variable is-4">
 
-        <!-- Item -->
         <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
           <figure class="video-card">
             <video class="demo-video" controls muted autoplay loop playsinline preload="metadata">
               <source src="static/dance/test_0_109_slice25.mp4" type="video/mp4">
             </video>
-            <figcaption class="video-caption">Classical-Style Dance</figcaption>
           </figure>
+          <figcaption class="video-caption">Classical-Style Dance</figcaption>
         </div>
 
         <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
@@ -197,8 +235,8 @@
             <video class="demo-video" controls muted autoplay loop playsinline preload="metadata">
               <source src="static/dance/test_1_063_slice11.mp4" type="video/mp4">
             </video>
-            <figcaption class="video-caption">Breaking-Style Dance</figcaption>
           </figure>
+          <figcaption class="video-caption">Breaking-Style Dance</figcaption>
         </div>
 
         <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
@@ -206,8 +244,8 @@
             <video class="demo-video" controls muted autoplay loop playsinline preload="metadata">
               <source src="static/dance/test_1_092_slice11.mp4" type="video/mp4">
             </video>
-            <figcaption class="video-caption">Dai-Style Dance</figcaption>
           </figure>
+          <figcaption class="video-caption">Dai-Style Dance</figcaption>
         </div>
 
         <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
@@ -215,8 +253,8 @@
             <video class="demo-video" controls muted autoplay loop playsinline preload="metadata">
               <source src="static/dance/test_1_211_slice21.mp4" type="video/mp4">
             </video>
-            <figcaption class="video-caption">Popping-Style Dance</figcaption>
           </figure>
+          <figcaption class="video-caption">Popping-Style Dance</figcaption>
         </div>
 
         <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
@@ -224,8 +262,8 @@
             <video class="demo-video" controls muted autoplay loop playsinline preload="metadata">
               <source src="static/dance/test_6_012_slice27.mp4" type="video/mp4">
             </video>
-            <figcaption class="video-caption">Jazz-Style Dance</figcaption>
           </figure>
+          <figcaption class="video-caption">Jazz-Style Dance</figcaption>
         </div>
 
         <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
@@ -233,17 +271,13 @@
             <video class="demo-video" controls muted autoplay loop playsinline preload="metadata">
               <source src="static/dance/test_14_204_slice16.mp4" type="video/mp4">
             </video>
-            <figcaption class="video-caption">Urban-Style Dance</figcaption>
           </figure>
+          <figcaption class="video-caption">Urban-Style Dance</figcaption>
         </div>
-
-        
 
       </div>
     </div>
   </section>
-
- 
 
   <!-- Footer -->
   <footer class="footer">
